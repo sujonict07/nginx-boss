@@ -1,18 +1,57 @@
 
-### Install and configurations(Ubuntu-18.04): 
+
+Installing Nginx
+================
+
+Nginx Signing Key
+-----------------
+```
+apt-key adv --fetch-keys http://nginx.org/keys/nginx_signing.key
+```
+
+Contents for /etc/apt/sources.list.d/nginx.list
+-----------------------------------------------
+```
+deb http://nginx.org/packages/ubuntu/ bionic nginx
+deb-src http://nginx.org/packages/ubuntu/ bionic nginx
+```
+
+Code names
+----------
+```
+bionic for 18.04
+xenial for 16.04
+```
+
+Installing Nginx
+----------------
+```
+apt install nginx nginx-module-geoip
+```
+
+Starting Nginx
+--------------
+```
+service start nginx
+```
+
+Install and configurations(Ubuntu-18.04): 
+-----------------------------------------
 
 ```
 sudo apt update
 sudo apt install nginx
 ```
 
-# Adjusting the Firewall
+Adjusting the Firewall
+------------------------
 ```
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
 sudo ufw status
 ```
-# start nginx 
+Start nginx 
+-------------
 ```
 sudo systemctl start nginx
 systemctl status nginx
@@ -26,7 +65,9 @@ sudo systemctl disable nginx
 sudo systemctl enable nginx
 ```
 
-## configurations setup
+Configurations setup
+--------------------
+
 ```
 Nginx configurations : 
 sudo vim /etc/nginx/sites-available/shifu_staging.com
@@ -55,7 +96,8 @@ sudo vim /etc/nginx/nginx.conf
 # To make sure that there are no syntax errors:
 ```
 
-### nginx common commands
+Nginx common commands
+-------------------------
 ```
 sudo nginx -t
 # Finish!! Lets go to deploy kutumbita-web
@@ -66,3 +108,4 @@ For Web:
     npm run build
 
 ```
+
